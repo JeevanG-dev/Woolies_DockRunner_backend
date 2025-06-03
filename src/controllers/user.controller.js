@@ -29,19 +29,16 @@ export const addUser = async (req, res) => {
 
     //checking existing user
 
-    const existingUserId = await User.findOne({ employeeid});
+    const existingUserId = await User.findOne({ employeeid });
     const existingUserEmail = await User.findOne({ email });
-
-
 
     if (existingUserId) {
       return res.status(400).json({ message: "User already exist" });
     }
 
-      if (existingUserEmail) {
+    if (existingUserEmail) {
       return res.status(400).json({ message: "User already exist" });
     }
-
 
     const newUser = new User({ employeeid, fullName, email, password });
     await newUser.save();

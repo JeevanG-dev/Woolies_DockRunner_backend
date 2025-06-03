@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import connectDB from "../config/mongoDB.js";
+import connectDB from "./config/mongoDB.js";
 import cookieParser from "cookie-parser";
-import userRoute from "../routes/user.routes.js";
+import userRoute from "./routes/user.routes.js";
 
 const app = express();
 
@@ -15,9 +15,9 @@ app.use(express.text());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req,res)=>{
-  res.send("Server is Working")
-})
+app.get("/", (req, res) => {
+  res.send("Server is Working");
+});
 
 app.use("/api/user", userRoute);
 
