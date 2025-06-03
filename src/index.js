@@ -15,6 +15,10 @@ app.use(express.text());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req,res)=>{
+  res.send("Server is Working")
+})
+
 app.use("/api/user", userRoute);
 
 app.listen(PORT, () => {
